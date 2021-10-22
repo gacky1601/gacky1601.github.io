@@ -1,3 +1,19 @@
+ul.a {
+    list-style-type: circle;
+}
+
+ul.b {
+    list-style-type: square;
+}
+
+ol.c {
+    list-style-type: upper-roman;
+}
+
+ol.d {
+    list-style-type: lower-alpha;
+}
+
 img {
     margin-left: auto;
     margin-right: auto;
@@ -16,16 +32,21 @@ html {
 }
 
 #content {
-    width: 90%;
+    width: 80%;
     height: 100%;
     margin: 0 auto;
     text-align: center;
 }
 
-
+img.a {
+    margin-left: 30;
+    margin-right: auto;
+    border-radius: 10%;
+    align-items: center;
+}
 
 #Sidebar {
-    width: 270px;
+    width: 300px;
     height: 700px;
     float: left;
     text-align: left;
@@ -38,7 +59,7 @@ html {
 }
 
 #body {
-    width: 300px;
+    width: 400px;
     height: 700px;
     float: left;
     text-align: left;
@@ -52,7 +73,7 @@ html {
 }
 
 #Sidebar_r {
-    width: 250px;
+    width: 400px;
     height: 700px;
     float: left;
     text-align: left;
@@ -62,9 +83,4 @@ html {
     color: #ffffff;
     font-weight: bold;
     background-color: #74a4eb;
-}
-
-h1 {
-    font-weight: bold;
-    text-align: center;
 }
