@@ -1,3 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+div.content {
+    width: 100%;
+    max-width: 1500px;
+    margin: auto;
+    color: black;
+    overflow: hidden;
+}
+
 ul.a {
     list-style-type: circle;
 }
@@ -15,72 +27,78 @@ ol.d {
 }
 
 img {
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-html {
-    color: rgb(151, 151, 151);
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-}
-
-#content {
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
-    text-align: center;
+    border-radius: 1%;
+    text-align: auto;
+    vertical-align: middle;
 }
 
 img.a {
-    margin-left: 30;
-    margin-right: auto;
     border-radius: 10%;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-#Sidebar {
-    width: 300px;
-    height: 700px;
-    float: left;
-    text-align: left;
-    margin: 0 auto;
-    padding: 20px 15px;
-    font-size: 15px;
-    color: #ffffff;
-    font-weight: bold;
+img.me {
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.infomation {
+    width: 100%;
+}
+
+div.link2 {
+    margin-left: 5px;
+}
+
+div.Sidebar {
     background-color: #4b9ebe;
+    width: 30%;
+    padding: 20px;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
 }
 
-#middle {
-    width: 400px;
-    height: 700px;
-    float: left;
-    text-align: left;
-    margin: 0 auto;
-    padding: 20px 15px;
-    font-size: 15px;
-    color: #ffffff;
-    font-weight: bold;
+div.middle {
     background-color: #74a4eb;
-
+    width: 35%;
+    padding: 20px;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
 }
 
-#Sidebar_r {
-    width: 400px;
-    height: 700px;
+div.Sidebar_r {
+    width: 35%;
+    padding: 20px;
     float: left;
     text-align: left;
-    margin: 0 auto;
-    padding: 20px 15px;
-    font-size: 15px;
-    color: #ffffff;
+    font-size: 20px;
     font-weight: bold;
     background-color: #74a4eb;
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+}
+
+@media screen and (max-width: 800px) {
+    div.Sidebar,
+    div.middle,
+    div.Sidebar_r {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        /* The width is 100%, when the viewport is 800px or smaller */
+    }
 }
