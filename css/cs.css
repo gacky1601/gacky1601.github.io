@@ -1,10 +1,11 @@
 * {
+    font-family: 'Noto Sans TC', sans-serif;
     box-sizing: border-box;
 }
 
 div.content {
     width: 100%;
-    max-width: 1500px;
+    max-width: 1300px;
     margin: auto;
     color: black;
     overflow: hidden;
@@ -93,12 +94,16 @@ div.Sidebar_r {
 }
 
 @media screen and (max-width: 800px) {
-    div.Sidebar,
-    div.middle,
-    div.Sidebar_r {
+    div.Sidebar, div.middle, div.Sidebar_r {
         width: 100%;
+        max-width: auto;
         margin-left: auto;
         margin-right: auto;
         /* The width is 100%, when the viewport is 800px or smaller */
+    }
+    div.content{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
