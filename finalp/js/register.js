@@ -19,13 +19,15 @@ async function signUpWithEmailPassword() {
         "email": email,
         "password": password
     };
-
     await firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             var user = userCredential.user;
-            console.log(user.id);
-            db.collection("finalproject").doc(user.id).set(docData);
-            window.location.href = "index.html";
+            console.log(user.uid);
+            db.collection("finalproject").doc(user.uid).set(docData);
+            alert("Success");
+            document.getElementById("username").value = "";
+            document.getElementById("password").value="";
+            // window.location.href = "./game/game.html";
         })
         .catch((error) => {
             var errorCode = error.code;

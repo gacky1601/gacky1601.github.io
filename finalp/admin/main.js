@@ -32,9 +32,9 @@ const tbody = document.querySelector('tbody');
     if (email != "admin@gmail.com")
       var x = `<td ><button id="${element.id}" onclick="del(this);">delete</button></td></tr>`;
     else
-      var x =`</tr>`
+      var x = `</tr>`
 
-    tbody.innerHTML = tbody.innerHTML + tableRow+x;
+    tbody.innerHTML = tbody.innerHTML + tableRow + x;
   });
 })();
 
@@ -43,9 +43,9 @@ const tbody = document.querySelector('tbody');
 async function del(butt) {
   var id = butt.id;
   console.log(id);
-  var emaila = document.getElementById(id+"em").innerText;
-  var passworda = document.getElementById(id+"pw").innerText;
-  console.log(emaila,passworda);
+  var emaila = document.getElementById(id + "em").innerText;
+  var passworda = document.getElementById(id + "pw").innerText;
+  console.log(emaila, passworda);
   const userDocList = await user.get();
   userDocList.forEach((element) => {
     const { password, email } = element.data();
@@ -55,7 +55,7 @@ async function del(butt) {
     }
   });
 
-  
+
   firebase.auth().signInWithEmailAndPassword(emaila, passworda);
   const curruser = firebase.auth().currentUser;
   curruser.delete().then(() => {
@@ -69,9 +69,43 @@ async function del(butt) {
 
 function logout() {
   firebase.auth().signOut().then(() => {
-      window.location.href = "../index.html";
-      // Sign-out successful.
+    window.location.href = "../index.html";
+    // Sign-out successful.
   }).catch((error) => {
-      // An error happened.
+    // An error happened.
   });
+}
+
+
+async function signUpWithEmailPassword() {
+  var email = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  var uid;
+  var docData = {
+    "email": email,
+    "password": password
+  };
+  console.log(docData);
+  await firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      var user = userCredential.user;
+      uid = user.uid;
+      console.log(uid);
+      db.collection("finalproject").doc(uid).set(docData);
+      alert("Success");
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error);
+      alert("Error");
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+    });
+  
+    await db.collection("finalproject").doc(uid).set(docData);
+    await firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456");
 }
