@@ -16,10 +16,15 @@
     <div class="container py-5">
         
         <h1 class="display-4 mb-5">User Table</h1>
+        <p>Annocument<br>
+            <textarea style="width: 500px;" id="messageBox"></textarea> <br> 
+            <input  id="myInput" type="text" placeholder="請輸入留言內容">
+            <button onclick="post();">提交</button>
+        <p>
+            Adminstrator Operations<br> 
         <button onclick="window.location.reload();">refresh</button>
         <button id="logout" onclick="logout();">Logout</button>
-        <p>
-        <p>   
+  
         <input type="text" id="username" name="username" placeholder="Email" required>
         <input type="password" id="password" name="password" placeholder="Password" required>
         <button class="shape-ex11" id='sign_sect' onclick="signUpWithEmailPassword();">create</button>
@@ -55,6 +60,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     <script src="./main.js"></script>
+    <script type="text/javascript" src="../js/comm.js"></script>
 </body>
 
 </html>

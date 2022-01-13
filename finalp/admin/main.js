@@ -14,7 +14,7 @@ const db = firebase.firestore();
 
 const user = db.collection('finalproject');
 const tbody = document.querySelector('tbody');
-
+var iden = "Admin:";
 
 
 (async () => {

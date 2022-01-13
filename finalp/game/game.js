@@ -13,6 +13,7 @@ const dbscore = db.collection('Best').doc('Best');
 var best = Number( document.getElementById("best").innerText);
 var cs = Number(document.getElementById("score").innerText);
 var currentuser;
+var iden;
 console.log(cs);
 function logout() {
     firebase.auth().signOut().then(() => {
@@ -27,6 +28,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // 使用者已登入，可以取得資料
         var email = user.email;
+        iden=email+":"
         var uid = user.uid;
         console.log(email);
         document.getElementById("user").innerText = email;
