@@ -17,7 +17,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         var email = user.email;
         var uid = user.uid;
         console.log(email, uid);
-        if(user.uid=="p1U8b7YcEUUpf5xGOMSinVdQDE02")
+        if(user.email=="admin@gmail.com")
             window.location.href = "./admin/index.html";
         else
             window.location.href = "./game/game.html";
