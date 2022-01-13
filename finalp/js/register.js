@@ -10,21 +10,28 @@ const firebaseConfig = {
 
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const user = db.collection('finalproject');
 
-
-function signUpWithEmailPassword() {
+async function signUpWithEmailPassword() {
     var email = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    var docData = {
+        "email": email,
+        "password": password
+    };
+
+    await firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             var user = userCredential.user;
-            window.location.href = "index.html"
+            console.log(user.id);
+            db.collection("finalproject").doc(user.id).set(docData);
+            window.location.href = "index.html";
         })
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(error);
-            alert("N");
+            alert("Error");
             window.location.reload();
         });
 

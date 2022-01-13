@@ -11,11 +11,18 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-firebase.auth().onAuthStateChanged((user) => {
-    console.log(1);
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        console.log(user);
-        // window.location.href = "schedule.html";
+        // 使用者已登入，可以取得資料
+        var email = user.email;
+        var uid = user.uid;
+        console.log(email, uid);
+        if(user.uid=="p1U8b7YcEUUpf5xGOMSinVdQDE02")
+            window.location.href = "./admin/index.html";
+        else
+            window.location.href = "./game/game.html";
+    } else {
+        // 使用者未登入
     }
 });
 
@@ -25,7 +32,7 @@ function signInWithEmailPassword() {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            window.location.href = "schedule.html";
+            
         })
         .catch((error) => {
             console.log(error);
@@ -34,11 +41,29 @@ function signInWithEmailPassword() {
         });
 }
 
-function logout(){
+function logout() {
     firebase.auth().signOut().then(() => {
         window.location.href = "index.html";
         // Sign-out successful.
     }).catch((error) => {
         // An error happened.
     });
+}
+
+function signUpWithEmailPassword() {
+    var email = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            var user = userCredential.user;
+            window.location.href = "index.html"
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(error);
+            alert("N");
+            window.location.reload();
+        });
+
 }
