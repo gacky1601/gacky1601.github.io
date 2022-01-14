@@ -58,7 +58,9 @@ async function del(butt) {
   await firebase.auth().signInWithEmailAndPassword(emaila, passworda);
   const curruser = firebase.auth().currentUser;
   await curruser.delete().then(() => { firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456"); });
-  alert("Please reload pages");
+  
+  alert("Please reload the page manually")
+
 }
 
 function logout() {
@@ -105,3 +107,12 @@ async function signUpWithEmailPassword() {
   window.location.reload();
 
 }
+
+function syncDelay(milliseconds) {
+  var start = new Date().getTime();
+  var end = 0;
+  while ((end - start) < milliseconds) {
+    end = new Date().getTime();
+  }
+}
+
