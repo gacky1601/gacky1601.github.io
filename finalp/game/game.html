@@ -10,19 +10,19 @@
     <script type="text/javascript" src="js/main2048.js"></script>
 </head>
 
-<body>
+<body background="../../background.jpg">
     <header>
         <h1>2048</h1>
         <textarea style="width: 500px;" id="messageBox"></textarea> <br> 
         <input  id="myInput" type="text" placeholder="請輸入留言內容">
         <button onclick="post();">提交</button>
-        <p>
+        <p style="font-size: 20px;">
         User:<span id="user"></span><br>
         leader:<span id="leader">None</span><br>best score:<span id="best">0</span><br>
         </p>
         <a href="javascript:logout();" id="newgamebutton">Logout</a>
         <a href="javascript:ng();javascript:newgame();" id="newgamebutton">New Game</a>
-        <p>score:<span id="score">0</span></p>
+        <p style="font-size: 20px;">score:<span id="score">0</span></p>
     </header>
     <div id="grid-container">
         <div class="grid-cell" id="grid-cell-0-0"></div>

@@ -33,7 +33,7 @@ var iden = "Admin:";
       var x = `<td ><button id="${element.id}" onclick="del(this);">delete</button></td></tr>`;
     else
       var x = `</tr>`
-
+    
     tbody.innerHTML = tbody.innerHTML + tableRow + x;
   });
 })();
