@@ -65,7 +65,14 @@ async function del(butt) {
   }).catch((error) => {
     alert("error");
   });
-  window.location.reload();
+  await userDocList.forEach((element) => {
+    const { password, email } = element.data();
+    if (email == emaila) {
+      user.doc(element.id).delete();
+      console.log(element.id);
+    }
+  });
+  
 }
 
 function logout() {
@@ -110,4 +117,5 @@ async function signUpWithEmailPassword() {
   await db.collection("finalproject").doc(uid).set(docData);
   await firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456");
   window.location.reload();
+
 }
