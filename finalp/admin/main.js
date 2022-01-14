@@ -33,7 +33,7 @@ var iden = "Admin:";
       var x = `<td ><button id="${element.id}" onclick="del(this);">delete</button></td></tr>`;
     else
       var x = `<td></td></tr>`
-    
+
     tbody.innerHTML = tbody.innerHTML + tableRow + x;
   });
 })();
@@ -95,7 +95,7 @@ async function signUpWithEmailPassword() {
       alert("Success");
       document.getElementById("username").value = "";
       document.getElementById("password").value = "";
-      
+
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -105,7 +105,8 @@ async function signUpWithEmailPassword() {
       document.getElementById("username").value = "";
       document.getElementById("password").value = "";
     });
-  
-    await db.collection("finalproject").doc(uid).set(docData);
-    await firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456");
+
+  await db.collection("finalproject").doc(uid).set(docData);
+  await firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456");
+  window.location.reload();
 }
