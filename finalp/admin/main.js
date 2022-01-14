@@ -50,8 +50,8 @@ async function del(butt) {
   userDocList.forEach((element) => {
     const { password, email } = element.data();
     if (email == emaila) {
-      await user.doc(element.id).delete();
-      await console.log(element.id);
+      user.doc(element.id).delete();
+      console.log(element.id);
     }
   });
 
