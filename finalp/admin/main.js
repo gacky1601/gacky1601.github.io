@@ -42,11 +42,11 @@ var iden = "Admin:";
 
 async function del(butt) {
   var id = butt.id;
-  console.log(id);
   var emaila = document.getElementById(id + "em").innerText;
   var passworda = document.getElementById(id + "pw").innerText;
   console.log(emaila, passworda);
   const userDocList = await user.get();
+
   await userDocList.forEach((element) => {
     const { password, email } = element.data();
     if (email == emaila) {
@@ -54,25 +54,11 @@ async function del(butt) {
       console.log(element.id);
     }
   });
-
 
   await firebase.auth().signInWithEmailAndPassword(emaila, passworda);
   const curruser = firebase.auth().currentUser;
-  await curruser.delete().then(() => {
-    firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456");
-    // alert("success");
-    window.location.reload();
-  }).catch((error) => {
-    alert("error");
-  });
-  await userDocList.forEach((element) => {
-    const { password, email } = element.data();
-    if (email == emaila) {
-      user.doc(element.id).delete();
-      console.log(element.id);
-    }
-  });
-  
+  await curruser.delete().then(() => { firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456"); });
+  alert("Please reload pages");
 }
 
 function logout() {
