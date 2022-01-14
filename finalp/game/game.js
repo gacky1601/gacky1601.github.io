@@ -54,19 +54,20 @@ dbscore.get().then((doc) => {
 });
 //  score.get.doc("score").data();
 
-function ng() {
+async function ng() {
     console.log(document.getElementById("score").innerText);
     best = Number( document.getElementById("best").innerText);
     cs = Number(document.getElementById("score").innerText);
     
     console.log(best, cs,currentuser);
     if (cs >= best) {
-        dbscore.set({score:cs,bestu:currentuser});
+        await dbscore.set({score:cs,bestu:currentuser});
     }
-    dbscore.get().then((doc) => {
+    await dbscore.get().then((doc) => {
         if (doc.exists) {
             console.log("Document data:", doc.data()["score"]);
-            document.getElementById("best").innerText= Number(doc.data()["score"]);
+            document.getElementById("best").innerText = Number(doc.data()["score"]);
+            document.getElementById("leader").innerText = doc.data()["bestu"];
         } else {
             
             console.log("No such document!");
@@ -74,4 +75,5 @@ function ng() {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+    // window.location.reload();
 }

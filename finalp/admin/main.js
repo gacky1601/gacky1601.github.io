@@ -25,12 +25,12 @@ var iden = "Admin:";
     const { password, email } = element.data();
     const tableRow = `
       <tr>
-          <th>。</th>
+          <th>◆</th>
           <td id="${element.id}em">${email}</td>
           <td id="${element.id}pw">${password}</td>
           `;
     if (email != "admin@gmail.com")
-      var x = `<td ><button id="${element.id}" onclick="del(this);">delete</button></td></tr>`;
+      var x = `<td ><button id="${element.id}" onclick="del(this);">Delete</button></tD></tr>`;
     else
       var x = `<td></td></tr>`
 
@@ -56,7 +56,7 @@ async function del(butt) {
   });
 
 
-  firebase.auth().signInWithEmailAndPassword(emaila, passworda);
+  await firebase.auth().signInWithEmailAndPassword(emaila, passworda);
   const curruser = firebase.auth().currentUser;
   curruser.delete().then(() => {
     firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456");

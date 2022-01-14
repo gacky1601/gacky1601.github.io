@@ -8,20 +8,45 @@
     <script type="text/javascript" src="js/support2048.js"></script>
     <script type="text/javascript" src="js/showanimation2048.js"></script>
     <script type="text/javascript" src="js/main2048.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 </head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">2048 Game!</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li>
+
+            </li>
+
+        </ul>
+
+        <div class="form-inline">
+            Annocument：
+            <textarea style="width: 300px;height: 30px;margin-right: 5px;" id="messageBox"></textarea> 
+            Leave message：
+            <input style="margin-left: 0.5cm ;" id="myInput" type="text" placeholder="請輸入留言內容">
+            <button style="margin-left: 0.5cm ;margin-right: 0.5cm ;" onclick="post();">提交</button>
+            User：<span style="margin-right: 5mm;" id="user"></span>
+
+            <button style="margin-left: 1cm ;height: 40px;" class="btn btn-danger" onclick="logout()">Logout</button>
+        </div>
+
+    </div>
+</nav>
 
 <body background="../../background.jpg">
     <header>
-        <h1>2048</h1>
-        <textarea style="width: 500px;" id="messageBox"></textarea> <br> 
-        <input  id="myInput" type="text" placeholder="請輸入留言內容">
-        <button onclick="post();">提交</button>
+        <!-- <h1>2048</h1> -->
         <p style="font-size: 20px;">
-        User:<span id="user"></span><br>
-        leader:<span id="leader">None</span><br>best score:<span id="best">0</span><br>
+            Leader:<span id="leader">None</span><br>Best score:<span id="best">0</span><br>
         </p>
-        <a href="javascript:logout();" id="newgamebutton">Logout</a>
-        <a href="javascript:ng();javascript:newgame();" id="newgamebutton">New Game</a>
+        <a href="javascript:ng();javascript:newgame();" id="newgamebutton">End Game</a>
+        <!-- <a href="javascript:ng();" id="newgamebutton">End Game</a> -->
         <p style="font-size: 20px;">score:<span id="score">0</span></p>
     </header>
     <div id="grid-container">
@@ -45,7 +70,7 @@
         <div class="grid-cell" id="grid-cell-3-2"></div>
         <div class="grid-cell" id="grid-cell-3-3"></div>
     </div>
-    
+
     <div id="gameover">
         GAME OVER
     </div>
