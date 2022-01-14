@@ -47,7 +47,7 @@ async function del(butt) {
   var passworda = document.getElementById(id + "pw").innerText;
   console.log(emaila, passworda);
   const userDocList = await user.get();
-  userDocList.forEach((element) => {
+  await userDocList.forEach((element) => {
     const { password, email } = element.data();
     if (email == emaila) {
       user.doc(element.id).delete();
@@ -58,13 +58,14 @@ async function del(butt) {
 
   await firebase.auth().signInWithEmailAndPassword(emaila, passworda);
   const curruser = firebase.auth().currentUser;
-  curruser.delete().then(() => {
+  await curruser.delete().then(() => {
     firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456");
-    alert("success");
+    // alert("success");
     window.location.reload();
   }).catch((error) => {
     alert("error");
   });
+  window.location.reload();
 }
 
 function logout() {
