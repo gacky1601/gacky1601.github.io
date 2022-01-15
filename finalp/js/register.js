@@ -26,7 +26,8 @@ async function signUpWithEmailPassword() {
             db.collection("finalproject").doc(user.uid).set(docData);
             alert("Success");
             document.getElementById("username").value = "";
-            document.getElementById("password").value="";
+            document.getElementById("password").value = "";
+            alert("Please wait for 10 secs.");
             // window.location.href = "./game/game.html";
         })
         .catch((error) => {

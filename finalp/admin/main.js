@@ -59,7 +59,7 @@ async function del(butt) {
   const curruser = firebase.auth().currentUser;
   await curruser.delete().then(() => { firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "123456"); });
   
-  alert("Please reload the page manually")
+  alert("Please reload the page manually after 10 secs.");
 
 }
 
