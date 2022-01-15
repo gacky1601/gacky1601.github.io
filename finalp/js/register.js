@@ -25,7 +25,7 @@ async function signUpWithEmailPassword() {
             console.log(user.uid);
             db.collection("finalproject").doc(user.uid).set(docData);
             alert("Success");
-            alert("Please wait for 10 secs.");
+            alert("Please wait for 10 secs.Then press back.");
             document.getElementById("username").value = "";
             document.getElementById("password").value = "";
             
