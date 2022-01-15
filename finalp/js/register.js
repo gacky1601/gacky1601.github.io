@@ -25,9 +25,10 @@ async function signUpWithEmailPassword() {
             console.log(user.uid);
             db.collection("finalproject").doc(user.uid).set(docData);
             alert("Success");
+            alert("Please wait for 10 secs.");
             document.getElementById("username").value = "";
             document.getElementById("password").value = "";
-            alert("Please wait for 10 secs.");
+            
             // window.location.href = "./game/game.html";
         })
         .catch((error) => {
