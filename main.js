@@ -1,18 +1,15 @@
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
+  var canvas = createCanvas(windowWidth / 1.5, windowHeight / 1.5, WEBGL);
 }
 
 function draw() {
-  background(255);
+  background(0);
   push();
-  // rotateY(-millis() / 1000);
-  drawHeart(50, 0, 0, 0, 249, 37, 72);
-  textSize(32);
-  text("Yupooooo's Website is Comming Soon...", 10, 30);
+  rotateY(-millis() / 1000);
+  drawHeart(40, 0, 0, 0, 249, 37, 72);
   pop();
-  
-
 }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
@@ -81,3 +78,6 @@ function drawHeart(BoxSize, posX, posY, posZ, r, g, b) {
   translate(-(10 / 9) * BoxSize, (10 / 9) * BoxSize, 0);
   box(BoxSize);
 }
+
+
+
